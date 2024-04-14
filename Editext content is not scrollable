@@ -1,0 +1,27 @@
+// Solution : Apply custom touch listener to ignore parent's scrolling effect
+
+val multilineEditTextTouchListener = View.OnTouchListener { view, motionEvent ->
+        // Disallow ScrollView to intercept touch events.
+        view.parent.requestDisallowInterceptTouchEvent(true)
+        when (motionEvent.action and MotionEvent.ACTION_MASK) {
+            MotionEvent.ACTION_SCROLL -> {
+                // Allow ScrollView to intercept touch events.
+                view.parent.requestDisallowInterceptTouchEvent(false)
+                true
+            }
+
+            else -> false
+        }
+    }
+
+fun setTouchListenerOnFocus(view: View, onTouchListener: View.OnTouchListener?) {
+            view.setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    view.setOnTouchListener(onTouchListener)
+                } else {
+                    view.setOnTouchListener(null)
+                }
+            }
+        }
+
+setTouchListenerOnFocus(binding.titlePostEt, multilineEditTextTouchListener)
