@@ -1,0 +1,2 @@
+Problem: R.jar: The process cannot access the file because it is being used by another process
+solution : run in cmd:  taskkill /im java.exe /f 
