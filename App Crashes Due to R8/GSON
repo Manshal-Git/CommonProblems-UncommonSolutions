@@ -1,0 +1,6 @@
+# If using TypeTokens 
+-keepattributes Signature
+-keep class com.google.gson.reflect.TypeToken { *; }
+-keep class * extends com.google.gson.reflect.TypeToken
+
+Need more info ? check out https://r8.googlesource.com/r8/+/refs/heads/main/compatibility-faq.md#troubleshooting-gson
