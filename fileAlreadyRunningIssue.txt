@@ -1,2 +1,7 @@
-Problem: R.jar: The process cannot access the file because it is being used by another process
-solution : run in cmd:  taskkill /im java.exe /f 
+Problem:
+R.jar: The process cannot access the file because it is being used by another process
+
+solution :
+1. close all xml,java,kt etc files from editor
+2. run in cmd:  taskkill /im java.exe /f 
+3. build or run the project
